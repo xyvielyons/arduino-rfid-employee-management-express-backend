@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import organizationRoutes from './routes/organization.route.js'
 import employeeRoutes from './routes/employee.route.js'
 import cors from 'cors'
+import checkinRoutes from './routes/checkin.route.js'
 dotenv.config()
 
 const app = express();
@@ -32,4 +33,5 @@ mongoose.connect(process.env.MONGO_CONN_STR,{
 
 app.use('/api/arduino/organization',organizationRoutes)
 app.use('/api/arduino/employee',employeeRoutes)
+app.use('/api/arduino/checkin',checkinRoutes)
 
