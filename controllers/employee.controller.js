@@ -19,7 +19,10 @@ export const createEmployee = async(req,res,next)=>{
 
 export const getEmployees = async(req,res,next)=>{
     try {
-        const employees = await employeeModel.find()
+        const organizationId = req.body.organizationId
+        const employees = await employeeModel.find({
+            organizationId
+        })
         res.status(200).json(employees)
     } catch (error) {
         res.status(500).json({

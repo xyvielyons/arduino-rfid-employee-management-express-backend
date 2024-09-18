@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
 const EmployeeSchema = new mongoose.Schema({
+    organizationId:{
+        type: String,
+        required:true
+    },
     firstName:{
         type:String,
         required:true
