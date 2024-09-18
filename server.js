@@ -3,14 +3,16 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser'
 import mongoose from "mongoose";
 import organizationRoutes from './routes/organization.route.js'
-
-
+import employeeRoutes from './routes/employee.route.js'
+import cors from 'cors'
 dotenv.config()
 
 const app = express();
 app.use(bodyParser.json({limit:"30mb",extended:true}))
 app.use(bodyParser.urlencoded({limit:"30mb",extended:true}))
-
+app.use(cors({
+    origin:'*'
+}))
 process.on('uncaughtException',(err)=>{
     console.log(err.message)
     console.log("Unhandled exception occured! shutting down")
@@ -29,4 +31,5 @@ mongoose.connect(process.env.MONGO_CONN_STR,{
 
 
 app.use('/api/arduino/organization',organizationRoutes)
+app.use('/api/arduino/employee',employeeRoutes)
 
