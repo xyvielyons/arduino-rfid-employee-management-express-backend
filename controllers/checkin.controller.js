@@ -18,9 +18,7 @@ export const createCheckin = async(req,res,next)=>{
             organizationId:findEmployee.organizationId
         })
         await createCheckin.save()
-        console.log(createCheckin)
 
-        console.log(findEmployee)
         res.status(200).json({
             row1:"success from server",
             row2:"employee checked in"
