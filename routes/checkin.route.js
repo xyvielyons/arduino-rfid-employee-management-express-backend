@@ -2,7 +2,7 @@ import express from "express";
 import { createCheckin,getCheckins,deleteCheckin } from "../controllers/checkin.controller.js";
 const router = express.Router()
 
-router.route('/createchekin')
+router.route('/createcheckin')
 .post(createCheckin)
 router.route('/getcheckin')
 .post(getCheckins)
